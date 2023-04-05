@@ -1,0 +1,19 @@
+
+GET  http://127.0.0.1:3000/risk/tx_sign HTTP/1.1
+Content-Type: application/json
+
+{
+    "chainId": 1,
+    "chainName": "Ethereum",
+    "locale": "en-US",
+    "recipient": "0xf5777caa1da5403d178fc8de6f79bacef860e0ac",
+    "sender": "0x3e888caa1da5403d178fc8de6f79bacef860e0ad",
+    "contract": "null",
+    "value": "10000000000000",
+    "gasPrice": "5000000000",
+    "gasLimit": "21000",
+    "maxFeePerGas": "0",
+    "maxPriorityFeePerGas": "0",
+    "nonce": 12,
+    "payload": "0xa9059cbb0000000000000000000000009071d2c68fee7606530470a896c438f4e03d86c2000000000000000000000000000000000000000000000000000000087c2c0cc0"
+}
