@@ -44,7 +44,11 @@ export const genGraphImageUrl = async (
           },
           "image/webp",
           {
-            backgroundColor: "#444",
+            backgroundColor: data.nodes.find(
+              (it) => it.id === "0x102a457be62ee0cda23f722af1930de1f72762c2"
+            )
+              ? "#455a64"
+              : "#444",
             padding: 10,
           }
         );

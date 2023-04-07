@@ -20,15 +20,7 @@ import { patternGraph } from "../../common/algo/pattern-graph";
 import { Box, Button, ButtonGroup } from "@mui/material";
 import { bottomVisible } from "../layout/store";
 import { drawerHeight } from "../../common/style-constant";
-import {
-  entries,
-  groupBy,
-  intersection,
-  keyBy,
-  keys,
-  uniq,
-  mapValues,
-} from "lodash";
+import { entries, groupBy, intersection, keys, uniq } from "lodash";
 import { ClusterData } from "./type";
 import { QuiltedImageList } from "./image-list";
 
@@ -406,6 +398,27 @@ export const KnowledgeGraph: FC = () => {
     switchShowPattern(false);
   }, [rawGraph]);
 
+  const mark = useCallback(() => {
+    graphRef.current?.createHull({
+      id: `match-123`,
+      members: [
+        "0x44b6a393560f9146e7556f0894b4ce76875b92f4",
+        "0xeb40342d42967a70066efdb498c69fd8b184683d",
+        "0xeb40342d0f7a5a0aacefbb9a32c9d2e22184683d",
+      ],
+      padding: 15,
+      type: "bubble",
+      style: {
+        fill: "white",
+        stroke: "red",
+        opacity: 0.9,
+      },
+      update: "drag",
+    });
+
+    graphRef.current?.focusItem("0x44b6a393560f9146e7556f0894b4ce76875b92f4");
+  }, []);
+
   return (
     <>
       <div
@@ -424,18 +437,22 @@ export const KnowledgeGraph: FC = () => {
           aria-label="vertical outlined button group"
         >
           {showPattern ? (
-            <Button onClick={showMain}>Back</Button>
+            <>
+              <Button onClick={showMain}>Back</Button>
+              {/* <Button onClick={mark}>Mark</Button> */}
+            </>
           ) : (
             <>
               <Button onClick={patternMathCallback} disabled={hasPattern}>
-                Pattern Match
+                1. Pattern Match
               </Button>
               <Button
                 onClick={transmissionCallback}
                 disabled={!hasPattern || hasTransmission}
               >
-                Risk Transmission
+                2. Risk Propagation
               </Button>
+              {/* <Button onClick={mark}>Mark</Button> */}
             </>
           )}
         </ButtonGroup>

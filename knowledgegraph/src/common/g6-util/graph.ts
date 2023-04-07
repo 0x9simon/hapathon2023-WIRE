@@ -3,6 +3,8 @@ import { GraphDataSource } from "../type";
 import { GraphEdgeClusterEnum } from "./constant";
 import { CacheLayoutMap } from "./cache-layout";
 
+const enableLayoutCache: boolean = true;
+
 export const createKnowledgeGraph = (
   container: HTMLElement,
   data: GraphDataSource
@@ -15,6 +17,16 @@ export const createKnowledgeGraph = (
     width,
     height,
     fitView: true,
+    layout: enableLayoutCache
+      ? undefined
+      : {
+          type: "gForce",
+          gravity: 10,
+          preventOverlap: true,
+          edgeStrength: 100,
+          nodeStrength: 100,
+          nodeSize: 24,
+        },
     modes: {
       default: [
         {
@@ -48,10 +60,15 @@ export const createKnowledgeGraph = (
   // layout.init(data);
   // layout.execute();
 
-  data.nodes.forEach((nd: any) => {
-    nd.x = CacheLayoutMap[nd.id].x;
-    nd.y = CacheLayoutMap[nd.id].y;
-  });
+  enableLayoutCache &&
+    data.nodes.forEach((nd: any) => {
+      if (!CacheLayoutMap[nd.id]) {
+        console.warn("layout cache not found:", nd.id);
+      }
+
+      nd.x = CacheLayoutMap[nd.id].x;
+      nd.y = CacheLayoutMap[nd.id].y;
+    });
 
   graph.data(data as unknown as GraphData);
   graph.render();

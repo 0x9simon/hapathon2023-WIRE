@@ -27,7 +27,12 @@ export const QuiltedImageList: FC<{
             loading="lazy"
             style={{
               cursor: "pointer",
-              backgroundColor: "#444",
+              backgroundColor:
+                item.id === "0x102a457be62ee0cda23f722af1930de1f72762c2"
+                  ? "#455a64"
+                  : "#444",
+
+              // "#444",
               objectFit: "contain",
             }}
             onClick={() => onClick(item.id)}
