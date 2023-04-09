@@ -8,7 +8,7 @@ export const createPatternGraph = (
   const width = container.scrollWidth ?? 800;
   const height = container.scrollHeight ?? 500;
 
-  const patternGraphWidth = Math.max(width / 5, 100);
+  const patternGraphWidth = 215.38;
   const patternGraphHeight = Math.max(height / 5, 100);
 
   const patternGraph = new G6.Graph({
@@ -46,8 +46,9 @@ export const createPatternGraph = (
   patternCanvasEl.style.position = "absolute";
   patternCanvasEl.style.top = "24px";
   patternCanvasEl.style.left = "24px";
-  patternCanvasEl.style.backgroundColor = "#eee";
-  patternCanvasEl.style.opacity = 0.7;
+  // patternCanvasEl.style.width = "215.38px";
+  patternCanvasEl.style.backgroundColor = "#757575";
+  patternCanvasEl.style.opacity = 0.95;
 
   patternCanvas.addShape("text", {
     attrs: {

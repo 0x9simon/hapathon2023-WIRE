@@ -6,7 +6,7 @@ export const patternGraph: GraphDataSource = {
   nodes: [
     {
       id: "EOA",
-      label: "E",
+      label: "S",
       cluster: GraphNodeClusterEnum.EOA,
 
       vx: -0.000011324120989227894,
@@ -25,7 +25,7 @@ export const patternGraph: GraphDataSource = {
     },
     {
       id: "Target",
-      label: "T",
+      label: "V",
       cluster: GraphNodeClusterEnum.Target,
       vx: 0.00011371239018271873,
       vy: -0.000007185290970746459,
@@ -34,7 +34,7 @@ export const patternGraph: GraphDataSource = {
     },
     {
       id: "Fraud",
-      label: "F",
+      label: "P",
       cluster: GraphNodeClusterEnum.Fraud,
       vx: 0.00036179924177093335,
       vy: -0.00005450527311612243,
@@ -43,7 +43,7 @@ export const patternGraph: GraphDataSource = {
     },
     {
       id: "Usual",
-      label: "U",
+      label: "T",
       cluster: GraphNodeClusterEnum.Usual,
       vx: 0.0005510324564410622,
       vy: 0.00013704611281174184,
