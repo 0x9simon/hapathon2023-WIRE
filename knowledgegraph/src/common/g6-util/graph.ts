@@ -2,6 +2,7 @@ import G6, { Graph, GraphData } from "@antv/g6";
 import { GraphDataSource } from "../type";
 import { GraphEdgeClusterEnum } from "./constant";
 import { CacheLayoutMap } from "./cache-layout";
+import { createLegend } from "./legend";
 
 const enableLayoutCache: boolean = true;
 
@@ -11,6 +12,8 @@ export const createKnowledgeGraph = (
 ): Graph => {
   const width = container.scrollWidth ?? 800;
   const height = container.scrollHeight ?? 500;
+
+  const legend = createLegend();
 
   const graph = new G6.Graph({
     container,
@@ -43,6 +46,7 @@ export const createKnowledgeGraph = (
         // "activate-relations",
       ], // 'drag-canvas',
     },
+    plugins: [legend],
   });
 
   // const layout = new G6.Layout.gForce({
