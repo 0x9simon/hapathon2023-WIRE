@@ -1,0 +1,90 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <com.alphawallet.app.widget.ZeroUAttackView
+                android:id="@+id/zero_u_attack"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="20dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                app:addrHeadChars="8"
+                app:addrStylePrefix0x="true"
+                app:addrTailChars="6"
+                app:addrTextSize="12sp"
+                app:attackerOvalFillColor="@color/black"
+                app:hintTextLineMargin="10dp"
+                app:hintTextSize="12sp"
+                app:lineWidth="2dp"
+                app:ovalHeightRatio="0.5"
+                app:ovalTextHorizontalPadding="10dp"
+                app:ovalTextLineMargin="2dp"
+                app:ovalTextSize="13sp"
+                app:ovalTextVerticalPadding="10dp"
+                app:usualOvalFillColor="@color/green"
+                app:victimOvalFillColor="@color/green" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_16"
+                android:background="@drawable/rect_bg"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginHorizontal="@dimen/standard_16"
+                        android:src="@drawable/ic_red_warning" />
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:paddingTop="10dp"
+                        android:text="@string/zero_u_alert"
+                        android:textAlignment="textStart"
+                        android:textSize="30sp" />
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/standard_16"
+                    android:layout_marginTop="15dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/zero_u_alert_detail_msg"
+                    android:textSize="15sp" />
+        </LinearLayout>
+
+        <View style="@style/Aw.Component.Separator" />
+
+        <com.alphawallet.app.widget.FunctionButtonBar
+                android:id="@+id/layoutButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
